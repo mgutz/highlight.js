@@ -237,7 +237,7 @@ def build_node(root, build_path, filenames, options):
     matches = (re.match('^- (?P<name>.*) <(?P<email>.*)>$', a) for a in authors)
     package['contributors'] = [m.groupdict() for m in matches if m]
     content = json.dumps(package, indent=2)
-    open(os.path.join(build_path, 'package.json'), 'w', encoding='utf-8').write(content)
+    open(os.path.join(root, 'package.json'), 'w', encoding='utf-8').write(content)
 
 def build_cdn(root, build_path, filenames, options):
     src_path = os.path.join(root, 'src')
